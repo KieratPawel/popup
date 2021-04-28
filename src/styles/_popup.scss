@@ -1,0 +1,212 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 85%;
+  padding: 10px;
+  background-color: $theme-color2;
+  border-radius: 5px;
+  @include media(horizontal) {
+    display: flex;
+  }
+  @include media(desktop) {
+    display: flex;
+    min-width: auto;
+    width: 720px;
+    padding: 15px;
+  }
+  &__image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(horizontal) {
+      flex-basis: 40%;
+    }
+    @include media(desktop) {
+      flex-basis: 50%;
+      flex-shrink: 0;
+    }
+  }
+  &__image {
+    width: 80%;
+  }
+  &__menu {
+    @include media(horizontal) {
+      flex-grow: 1;
+    }
+  }
+  &__header {
+    margin: 5px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    @include media(horizontal) {
+      width: 90%;
+    }
+  }
+  &__price {
+    margin: 5px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $theme-color;
+  }
+  &__close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    @include media(desktop) {
+      top: 20px;
+      right: 20px;
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      left: 10px;
+      content: " ";
+      height: 20px;
+      width: 4px;
+      border-radius: 2px;
+      background-color: $font-color;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+  &__items {
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+  &__items-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &__item {
+    padding: 5px 10px;
+    margin-top: 6px;
+    margin-right: 7px;
+    border: 2px solid $frame-color;
+    border-radius: 5px;
+    cursor: pointer;
+    @include media(desktop) {
+      padding: 10px 15px;
+      margin-right: 15px;
+    }
+    &:nth-last-of-type(1) {
+      margin-right: 0;
+    }
+    &--active {
+      border-color: $theme-color;
+    }
+  }
+  &__versions {
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+  &__select {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 5px 8px;
+    border: 2px solid $frame-color;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    appearance: none;
+    cursor: pointer;
+    @include media(desktop) {
+      padding: 10px 12px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &__option {
+    color: $font-color;
+  }
+  &__order {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+  &__line {
+    &--green {
+      margin-right: 9px;
+      color: green;
+    }
+    &--red {
+      margin-right: 5px;
+      color: red;
+    }
+  }
+  &__shipping {
+    display: flex;
+    align-items: center;
+    margin: 5px 20px 5px 0;
+  }
+  &__icon {
+    font-size: 1.5rem;
+    margin-right: 4px;
+  }
+  &__shipping-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__link {
+    text-decoration: none;
+    color: $theme-color;
+  }
+  &__amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $frame-color;
+    border-radius: 5px;
+    flex-basis: 30%;
+    user-select: none;
+  }
+  &__amount-button {
+    cursor: pointer;
+    font-weight: bold;
+
+    &:nth-of-type(1) {
+      padding: 10px 20px 10px 5px;
+    }
+    &:nth-last-of-type(1) {
+      padding: 10px 5px 10px 20px;
+    }
+  }
+  &__buy-button {
+    flex-basis: 67%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: $frame-color;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      filter: saturate(70%);
+    }
+    &:focus {
+      outline: none;
+    }
+    &--active {
+      background-color: $theme-color;
+      color: $theme-color2;
+    }
+  }
+  &__message {
+    padding: 150px 20px;
+    font-size: 2rem;
+  }
+}
